@@ -7,3 +7,4 @@ curl "http://localhost:4741/sign-out" \
   --header "Authorization: Token token=${TOKEN}"
 
 echo
+# TOKEN="BAhJIiVhYmVhMTZlZmU1N2VjMzRkNTYwZWUwZGQzNjU2YjkzNAY6BkVG--6524d5ac087896851c286cd11decad1ccb533743"  sh scripts/auth/sign-out.sh
