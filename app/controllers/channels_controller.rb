@@ -1,4 +1,5 @@
-class ChannelsController < ProtectedController
+require 'pry'
+class ChannelsController < OpenReadController
   before_action :set_channel, only: [:show, :update, :destroy]
 
   # GET /channels
@@ -15,8 +16,9 @@ class ChannelsController < ProtectedController
 
   # POST /channels
   def create
-    @channel = Channel.new(channel_params)
-
+    # @channel = Channel.new(channel_params)
+    @channel = current_user.channels.build(channel_params)
+    binding.pry
     if @channel.save
       render json: @channel, status: :created, location: @channel
     else

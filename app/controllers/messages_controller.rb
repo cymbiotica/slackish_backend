@@ -1,4 +1,4 @@
-class MessagesController < ApplicationController
+class MessagesController < OpenReadController
   before_action :set_message, only: [:show, :update, :destroy]
 
   # GET /messages
@@ -15,7 +15,8 @@ class MessagesController < ApplicationController
 
   # POST /messages
   def create
-    @message = Message.new(message_params)
+    # @message = Message.new(message_params)
+    @message = current_user.Message.build(message_params)
 
     if @message.save
       render json: @message, status: :created, location: @message
