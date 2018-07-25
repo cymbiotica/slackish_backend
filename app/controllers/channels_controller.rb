@@ -18,7 +18,6 @@ class ChannelsController < OpenReadController
   def create
     # @channel = Channel.new(channel_params)
     @channel = current_user.channels.build(channel_params)
-    binding.pry
     if @channel.save
       render json: @channel, status: :created, location: @channel
     else
