@@ -53,4 +53,5 @@ class ChannelsController < OpenReadController
     def channel_desc
       params.require(:description)
       .permit(:old, :new)
+    end
 end
